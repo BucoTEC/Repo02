@@ -5,7 +5,8 @@
 	"scripts": {
 		"lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
 		"dev": "nodemon app.js",
-		"run": "node app.js"
+		"run": "node app.js",
+		"prepare": "husky install"
 	},
 	"type": "module",
 	"repository": "https://github.com/BucoTEC/Repo02.git",
@@ -13,9 +14,6 @@
 	"license": "MIT",
 	"devDependencies": {
 		"eslint": "^8.18.0",
-		"husky": "^8.0.1"
-	},
-	"husky": {
-		"pre-commit": "yarn lint"
+		"husky": "^8.0.0"
 	}
 }
