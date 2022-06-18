@@ -1,19 +1,21 @@
 {
-	"name": "graphql-play",
-	"version": "1.0.0",
-	"main": "app.js",
-	"scripts": {
-		"lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-		"dev": "nodemon app.js",
-		"run": "node app.js",
-		"prepare": "husky install"
-	},
-	"type": "module",
-	"repository": "https://github.com/BucoTEC/Repo02.git",
-	"author": "Adnan Bucalovic <adnan.bucalovic13@gmail.com>",
-	"license": "MIT",
-	"devDependencies": {
-		"eslint": "^8.18.0",
-		"husky": "^8.0.0"
-	}
+  "name": "graphql-play",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "dev": "nodemon app.js",
+    "run": "node app.js",
+    "prepare": "husky install"
+  },
+  "type": "module",
+  "repository": "https://github.com/BucoTEC/Repo02.git",
+  "author": "Adnan Bucalovic <adnan.bucalovic13@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "husky": "^8.0.0",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3"
+  }
 }
