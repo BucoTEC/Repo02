@@ -10,8 +10,14 @@ const typeDefs = gql`
     author: String
   }
 
+  type Author {
+    name: String
+    books: [Book]
+  }
+
   type Query {
     books: [Book]
+    authors: [Author]
   }
 `;
 
@@ -27,10 +33,13 @@ const books = [
   }
 ];
 
+const authors = [{ name: 'safet' }];
 // reslovers hanlde logice form quries and mutations
 const resolvers = {
   Query: {
-    books: () => books
+    books: () => books,
+
+    authors: () => authors
   }
 };
 
