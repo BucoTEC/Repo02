@@ -1,4 +1,7 @@
-import { ApolloServer, gql } from 'apollo-server';
+import { ApolloServer, gql } from 'apollo-server-express';
+import express from 'express';
+
+const app = express();
 
 // type def locate tipes of data and what should mutations and queries return
 const typeDefs = gql`
@@ -31,16 +34,16 @@ const resolvers = {
   }
 };
 
-// The ApolloServer constructor requires two parameters: your schema
-// definition and your set of resolvers.
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  csrfPrevention: true,
-  cache: 'bounded'
-});
+const startServer = async (typeDefs, resolvers) => {
+  const server = new ApolloServer({ typeDefs, resolvers });
+  await server.start();
+  server.applyMiddleware({ app });
 
-// The `listen` method launches a web server.
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+  const PORT = 5000;
+
+  app.listen(PORT, () => {
+    console.log(`Server is operational on port: ${PORT}`);
+  });
+};
+
+startServer(typeDefs, resolvers);
