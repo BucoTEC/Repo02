@@ -15,13 +15,31 @@ const typeDefs = gql`
     books: [Book]
   }
 
+  type User {
+    id: ID
+    name: String
+  }
+
   type Query {
     books: [Book]
     authors: [Author]
+    user(id: ID!): User
   }
 `;
 
 // dummy data
+
+const users = [
+  {
+    id: '1',
+    name: 'Elizabeth Bennet'
+  },
+  {
+    id: '2',
+    name: 'Fitzwilliam Darcy'
+  }
+];
+
 const books = [
   {
     title: 'The Awakening',
@@ -39,7 +57,11 @@ const resolvers = {
   Query: {
     books: () => books,
 
-    authors: () => authors
+    authors: () => authors,
+
+    user: (_, args) => {
+      return users.find((user) => user.id === args.id);
+    }
   }
 };
 
